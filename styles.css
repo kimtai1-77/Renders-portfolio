@@ -251,7 +251,11 @@ svg.icon {
    }
 
    .lightbox-nav {
-      padding: 1rem;
+      display: none;
+   }
+
+   .lightbox-close {
+      padding: 0.6rem;
    }
 
    .icon {
@@ -280,13 +284,11 @@ svg.icon {
    .lightbox-close {
       top: 1rem;
       right: 1rem;
+      padding: 0.5rem;
    }
 
-   .lightbox-nav-prev {
-      left: 1rem;
-   }
-
-   .lightbox-nav-next {
-      right: 1rem;
+   .icon {
+      width: 1.6rem;
+      height: 1.6rem;
    }
 }

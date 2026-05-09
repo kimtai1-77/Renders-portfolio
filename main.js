@@ -75,3 +75,38 @@ lightbox.addEventListener('click', (e) => {
       closeLightbox();
    }
 });
+
+// ===== Swipe Gesture Support =====
+let touchStartX = 0;
+let touchEndX = 0;
+let touchStartY = 0;
+let touchEndY = 0;
+
+function handleSwipe() {
+   const swipeThreshold = 50;
+   const verticalThreshold = 100;
+   const deltaX = touchEndX - touchStartX;
+   const deltaY = Math.abs(touchEndY - touchStartY);
+   
+   // Check if swipe is more horizontal than vertical
+   if (Math.abs(deltaX) > swipeThreshold && deltaY < verticalThreshold) {
+      if (deltaX > 0) {
+         // Swiped right - show previous image
+         showPrevImage();
+      } else {
+         // Swiped left - show next image
+         showNextImage();
+      }
+   }
+}
+
+lightbox.addEventListener('touchstart', (e) => {
+   touchStartX = e.changedTouches[0].screenX;
+   touchStartY = e.changedTouches[0].screenY;
+}, false);
+
+lightbox.addEventListener('touchend', (e) => {
+   touchEndX = e.changedTouches[0].screenX;
+   touchEndY = e.changedTouches[0].screenY;
+   handleSwipe();
+}, false);

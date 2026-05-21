@@ -10,10 +10,48 @@
     <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Barlow+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Bungee+Hairline&family=Bungee+Inline&family=Bungee+Outline&family=Bungee+Shade&family=Bungee+Spice&family=Cabin+Sketch:wght@400;700&family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Iosevka+Charon:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&family=Macondo&family=Ojuju:wght@200..800&family=Outfit:wght@100..900&family=Pixelify+Sans:wght@400..700&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&family=Poiret+One&family=Press+Start+2P&family=Rubik+Dirt&family=Russo+One&family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..900&family=Silkscreen:wght@400;700&family=Sora:wght@100..800&family=Space+Grotesk:wght@300..700&family=Urbanist:ital,wght@0,100..900;1,100..900&family=VT323&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="navbar-brand">RM</div>
+            
+            <!-- Desktop Menu -->
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#" onclick="goToPage('quotation.html')" class="nav-link">Quotation</a></li>
+                <li class="nav-item"><a href="#" onclick="goToPage('index.html')" class="nav-link">Portfolio</a></li>
+                <!--<li class="nav-item"><a href="#" onclick="goToPage('designs.html')" class="nav-link">Designs</a></li>-->
+                <li class="nav-item"><a href="#" onclick="goToPage('terms.html')" class="nav-link">Terms</a></li>
+            </ul>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="hamburger" id="hamburger">
+                <img src="images/menu.svg" alt="Menu" class="hamburger-icon" id="hamburgerIcon">
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <div class="mobile-menu-header">
+            <button class="mobile-close-btn" id="closeMenu">
+                <img src="images/close.svg" alt="Close" class="mobile-close-icon">
+            </button>
+        </div>
+        <ul class="mobile-nav-menu">
+            <li class="mobile-nav-item"><a href="#" onclick="goToPage('quotation.html')" class="mobile-nav-link">Quotation</a></li>
+            <li class="mobile-nav-item"><a href="#" onclick="goToPage('index.html')" class="mobile-nav-link">Portfolio</a></li>
+            <li class="mobile-nav-item"><a href="#" onclick="goToPage('designs.html')" class="mobile-nav-link">Designs</a></li>
+            <li class="mobile-nav-item"><a href="#" onclick="goToPage('terms.html')" class="mobile-nav-link">Terms</a></li>
+        </ul>
+    </div>
+    
     <main class="container">
         <header class="header">
             <h1 class="heading">Renders Portfolio</h1>
-            <h4>Martin M. Mbae</h4>
+            <h5>Martin M. Mbae</h5>
         </header>
 
         <section class="gallery-section">

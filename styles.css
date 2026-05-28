@@ -790,6 +790,7 @@ svg.icon {
    transition: all 0.2s ease;
    white-space: nowrap;
    flex-shrink: 0;
+   display: none;
 }
 
 .material-add-btn:hover {

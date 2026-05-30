@@ -839,6 +839,7 @@ svg.icon {
 }
 
 .empty-state-message {
+   grid-column: 1 / -1;
    width: 100%;
    text-align: center;
    color: var(--nt-300);

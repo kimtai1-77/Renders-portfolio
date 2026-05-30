@@ -790,7 +790,7 @@ svg.icon {
    transition: all 0.2s ease;
    white-space: nowrap;
    flex-shrink: 0;
-   display: none;
+   /*display: none;*/
 }
 
 .material-add-btn:hover {
@@ -874,7 +874,7 @@ svg.icon {
 .selected-material-cont:hover {
    transform: translateY(-4px);
    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-   border-color: var(--s-300);
+   border-color: var(--nt-500);
 }
 
 .selected-material-image {
@@ -1030,7 +1030,7 @@ svg.icon {
    border-radius: 0.6rem;
    font-size: clamp(1rem, 1.3vw, 1.3rem);
    font-weight: 600;
-   z-index: 999;
+   z-index: 10000;
    animation: slideIn 0.3s ease forwards;
    max-width: 300px;
 }

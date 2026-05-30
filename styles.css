@@ -892,6 +892,7 @@ svg.icon {
    align-items: center;
    justify-content: space-between;
    padding: clamp(1.6rem, 2vw, 2rem);
+   height: 100%;
    gap: 2rem;
    background-color: var(--nt-600);
 }

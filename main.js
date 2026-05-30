@@ -390,7 +390,7 @@ async function addSelectedColor(materialData) {
       await db.collection(COLORS_COLLECTION).doc(SELECTED_COLORS_DOC).set({ items: selected });
       console.log('✅ Added to database:', materialData.name);
    } catch (error) {
-      console.error('Error adding color:', error);
+      console.error('❌ Error adding color:', error);
       throw new Error('Failed to add color to database');
    }
 }
@@ -413,7 +413,7 @@ async function removeSelectedColor(materialId) {
       await db.collection(COLORS_COLLECTION).doc(SELECTED_COLORS_DOC).set({ items: filtered });
       console.log('Removed from database:', materialId);
    } catch (error) {
-      console.error('Error removing color:', error);
+      console.error('❌ Error removing color:', error);
       throw new Error('Failed to remove color from database');
    }
 }

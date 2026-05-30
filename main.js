@@ -682,7 +682,6 @@ async function renderSelectedMaterials() {
 
 // Load and render materials from JSON
 async function loadMaterials() {
-   // Get reference to loading spinner element
    const colorLoader = document.getElementById('colorLoader');
    
    try {
@@ -698,7 +697,6 @@ async function loadMaterials() {
          colorLoader.classList.add('hidden');
       }
       
-      // Render selected materials from Firebase
       await renderSelectedMaterials();
    } catch (error) {
       console.error('Error loading materials:', error);

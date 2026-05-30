@@ -1099,3 +1099,56 @@ svg.icon {
       width: 100%;
    }
 }
+
+/* ===== Circular Loader ===== */
+.circular-loader {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+   gap: 2rem;
+   padding: clamp(3rem, 5vw, 6rem) 2rem;
+   opacity: 1;
+   transition: opacity 0.3s ease;
+}
+
+.circular-loader.hidden {
+   display: none;
+   opacity: 0;
+}
+
+.loader-circle {
+   width: clamp(6rem, 10vw, 10rem);
+   height: clamp(6rem, 10vw, 10rem);
+   border: 8px solid var(--nt-600);
+   border-right: 8px solid var(--s-400);
+   border-radius: 50%;
+   animation: spin 1.6s linear infinite;
+}
+
+@keyframes spin {
+   0% {
+      transform: rotate(0deg);
+   }
+   100% {
+      transform: rotate(360deg);
+   }
+}
+
+.loader-text {
+   font-size: clamp(1.2rem, 2vw, 1.8rem);
+   color: var(--nt-200);
+   font-weight: 500;
+   letter-spacing: 0.1rem;
+   margin: 0;
+   animation: fadeInOut 1.5s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+   0%, 100% {
+      opacity: 0.6;
+   }
+   50% {
+      opacity: 1;
+   }
+}

@@ -351,7 +351,6 @@ let displayedItemIds = new Set();      // Colors already shown (prevents duplica
 
 // Function: Get all selected colors from the database
 async function getSelectedColors() {
-   // Exit if database isn't connected
    if (!db) {
       throw new Error('Database connection not available');
    }
@@ -391,7 +390,7 @@ async function addSelectedColor(materialData) {
       await db.collection(COLORS_COLLECTION).doc(SELECTED_COLORS_DOC).set({ items: selected });
       console.log('✅ Added to database:', materialData.name);
    } catch (error) {
-      console.error('❌ Error adding color:', error);
+      console.error('Error adding color:', error);
       throw new Error('Failed to add color to database');
    }
 }
@@ -414,7 +413,7 @@ async function removeSelectedColor(materialId) {
       await db.collection(COLORS_COLLECTION).doc(SELECTED_COLORS_DOC).set({ items: filtered });
       console.log('Removed from database:', materialId);
    } catch (error) {
-      console.error('❌ Error removing color:', error);
+      console.error('Error removing color:', error);
       throw new Error('Failed to remove color from database');
    }
 }
@@ -625,14 +624,10 @@ async function renderSelectedMaterials() {
    if (!selectedMaterialsContainer) return;
    
    try {
-      // Get all selected colors from database
       const selected = await getSelectedColors();
-      
-      // Clear the container
       selectedMaterialsContainer.innerHTML = '';
-      displayedItemIds.clear();
+      displayedItemIds.clear(); // Reset tracked items
       
-      // Show "no colors selected" message if list is empty
       if (selected.length === 0) {
          const emptyMessage = document.createElement('p');
          emptyMessage.className = 'empty-state-message';
@@ -641,12 +636,9 @@ async function renderSelectedMaterials() {
          return;
       }
       
-      // Display each selected color
       selected.forEach(material => {
-         // Mark as displayed to prevent duplicates
-         displayedItemIds.add(material.id);
+         displayedItemIds.add(material.id); // Track displayed items
          
-         // Create HTML for the selected color
          const selectedMaterialCont = document.createElement('div');
          selectedMaterialCont.className = 'selected-material-cont';
          selectedMaterialCont.dataset.materialId = material.id;
@@ -697,6 +689,7 @@ async function loadMaterials() {
          colorLoader.classList.add('hidden');
       }
       
+      // Render selected materials from Firebase
       await renderSelectedMaterials();
    } catch (error) {
       console.error('Error loading materials:', error);

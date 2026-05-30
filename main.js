@@ -351,6 +351,7 @@ let displayedItemIds = new Set();      // Colors already shown (prevents duplica
 
 // Function: Get all selected colors from the database
 async function getSelectedColors() {
+   // Exit if database isn't connected
    if (!db) {
       throw new Error('Database connection not available');
    }
@@ -624,10 +625,14 @@ async function renderSelectedMaterials() {
    if (!selectedMaterialsContainer) return;
    
    try {
+      // Get all selected colors from database
       const selected = await getSelectedColors();
-      selectedMaterialsContainer.innerHTML = '';
-      displayedItemIds.clear(); // Reset tracked items
       
+      // Clear the container
+      selectedMaterialsContainer.innerHTML = '';
+      displayedItemIds.clear();
+      
+      // Show "no colors selected" message if list is empty
       if (selected.length === 0) {
          const emptyMessage = document.createElement('p');
          emptyMessage.className = 'empty-state-message';
@@ -636,9 +641,12 @@ async function renderSelectedMaterials() {
          return;
       }
       
+      // Display each selected color
       selected.forEach(material => {
-         displayedItemIds.add(material.id); // Track displayed items
+         // Mark as displayed to prevent duplicates
+         displayedItemIds.add(material.id);
          
+         // Create HTML for the selected color
          const selectedMaterialCont = document.createElement('div');
          selectedMaterialCont.className = 'selected-material-cont';
          selectedMaterialCont.dataset.materialId = material.id;
@@ -674,6 +682,7 @@ async function renderSelectedMaterials() {
 
 // Load and render materials from JSON
 async function loadMaterials() {
+   // Get reference to loading spinner element
    const colorLoader = document.getElementById('colorLoader');
    
    try {

@@ -3,6 +3,8 @@ function goToPage(page) {
    window.location.href = page;
 }
 
+console.log('main is firing!');
+
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const hamburgerIcon = document.getElementById('hamburgerIcon');
@@ -267,14 +269,8 @@ if (lightbox) {
 
 
 
-
-
-
-
-
 // ===== Firebase Configuration =====
-// Configuration is loaded from firebaseConfig.js to keep secrets out of version control
-import firebaseConfig from './firebaseConfig.js';
+// Configuration is loaded from firebaseConfig.js
 
 // Initialize Firebase only when available
 let app, db;
@@ -687,7 +683,7 @@ async function loadMaterials() {
    
    try {
       // Load the JSON file
-      const response = await fetch('./data.json');
+      const response = await fetch('/data.json');
       allMaterials = await response.json();
       
       // Display all available colors

@@ -6,6 +6,23 @@ function goToPage(page) {
 
 console.log('main is firing!');
 
+// Index page mobile menu toggle
+function toggleIndexMobileMenu() {
+   isMenuOpen = !isMenuOpen;
+   
+   if (isMenuOpen) {
+      mobileMenu.classList.add('active');
+      menuOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      hamburgerIcon.src = 'close.svg';
+   } else {
+      mobileMenu.classList.remove('active');
+      menuOverlay.classList.remove('active');
+      document.body.style.overflow = 'auto';
+      hamburgerIcon.src = 'menu.svg';
+   }
+}
+
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const hamburgerIcon = document.getElementById('hamburgerIcon');
@@ -27,13 +44,13 @@ function toggleMobileMenu() {
       mobileMenu.classList.add('active');           // Show the menu
       menuOverlay.classList.add('active');          // Show the overlay behind it
       document.body.style.overflow = 'hidden';      // Prevent scrolling on page
-      hamburgerIcon.src = '../images/close.svg';       // Change icon to X
+      hamburgerIcon.src = '../images/close.svg';    // Change icon to X
    } else {
       // CLOSE the menu
       mobileMenu.classList.remove('active');        // Hide the menu
       menuOverlay.classList.remove('active');       // Hide the overlay
       document.body.style.overflow = 'auto';        // Allow scrolling again
-      hamburgerIcon.src = '../images/menu.svg';        // Change icon back to hamburger
+      hamburgerIcon.src = '../images/menu.svg';     // Change icon back to hamburger
    }
 }
 

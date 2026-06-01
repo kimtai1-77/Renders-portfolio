@@ -26,13 +26,13 @@ function toggleMobileMenu() {
       mobileMenu.classList.add('active');           // Show the menu
       menuOverlay.classList.add('active');          // Show the overlay behind it
       document.body.style.overflow = 'hidden';      // Prevent scrolling on page
-      hamburgerIcon.src = 'images/close.svg';       // Change icon to X
+      hamburgerIcon.src = '/images/close.svg';       // Change icon to X
    } else {
       // CLOSE the menu
       mobileMenu.classList.remove('active');        // Hide the menu
       menuOverlay.classList.remove('active');       // Hide the overlay
       document.body.style.overflow = 'auto';        // Allow scrolling again
-      hamburgerIcon.src = 'images/menu.svg';        // Change icon back to hamburger
+      hamburgerIcon.src = '/images/menu.svg';        // Change icon back to hamburger
    }
 }
 

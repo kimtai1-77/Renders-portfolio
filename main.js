@@ -1,6 +1,4 @@
 
-const basePath = "/Renders-portfolio/"; // Base path for all page navigation
-
 // ===== Navigation Management =====
 function goToPage(page) {
    window.location.href = page;

@@ -6,23 +6,6 @@ function goToPage(page) {
 
 console.log('main is firing!');
 
-// Index page mobile menu toggle
-function toggleIndexMobileMenu() {
-   isMenuOpen = !isMenuOpen;
-   
-   if (isMenuOpen) {
-      mobileMenu.classList.add('active');
-      menuOverlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-      hamburgerIcon.src = 'close.svg';
-   } else {
-      mobileMenu.classList.remove('active');
-      menuOverlay.classList.remove('active');
-      document.body.style.overflow = 'auto';
-      hamburgerIcon.src = 'menu.svg';
-   }
-}
-
 // Mobile Menu Toggle
 const hamburger = document.getElementById('hamburger');
 const hamburgerIcon = document.getElementById('hamburgerIcon');
@@ -39,18 +22,23 @@ function toggleMobileMenu() {
    // Switch the menu state (true becomes false, false becomes true)
    isMenuOpen = !isMenuOpen;
    
+   // Determine icon path based on current page
+   const isIndexPage = window.location.pathname.endsWith('index.html') || window.location.pathname.endsWith('/');
+   const closeIcon = isIndexPage ? 'close.svg' : '../images/close.svg';
+   const menuIcon = isIndexPage ? 'menu.svg' : '../images/menu.svg';
+   
    if (isMenuOpen) {
       // OPEN the menu
       mobileMenu.classList.add('active');           // Show the menu
       menuOverlay.classList.add('active');          // Show the overlay behind it
       document.body.style.overflow = 'hidden';      // Prevent scrolling on page
-      hamburgerIcon.src = '../images/close.svg';    // Change icon to X
+      hamburgerIcon.src = closeIcon;                // Change icon to X
    } else {
       // CLOSE the menu
       mobileMenu.classList.remove('active');        // Hide the menu
       menuOverlay.classList.remove('active');       // Hide the overlay
       document.body.style.overflow = 'auto';        // Allow scrolling again
-      hamburgerIcon.src = '../images/menu.svg';     // Change icon back to hamburger
+      hamburgerIcon.src = menuIcon;                 // Change icon back to hamburger
    }
 }
 
